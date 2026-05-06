@@ -16,9 +16,9 @@ class Division(MathOperation):
 class CalculatorApp(ctk.CTk):
     def __init__(self):
         super().__init__()
-        self.title("Maangas Calculator 3000")
+        self.title("Maangas Simple Calculator 3000")
         self.geometry("400x550")
-        ctk.set_appearance_mode("dark")
+        ctk.set_appearance_mode("yellow")
         
         self.operations = {
             "Addition": Addition(), "Subtraction": Subtraction(),
@@ -27,7 +27,7 @@ class CalculatorApp(ctk.CTk):
         self.setup_ui()
 
     def setup_ui(self):
-        ctk.CTkLabel(self, text="CALCULATOR 3000", font=("Arial", 24, "bold")).pack(pady=20)
+        ctk.CTkLabel(self, text="CALCULATOR 3000", font=("Impact", 24, "bold"), text_color="orange").pack(pady=20)
         self.num1_entry = ctk.CTkEntry(self, placeholder_text="Enter first number", width=250)
         self.num1_entry.pack(pady=10)
         self.operation_var = ctk.StringVar(value="Addition")
@@ -38,3 +38,7 @@ class CalculatorApp(ctk.CTk):
         self.calc_btn.pack(pady=20)
         self.result_label = ctk.CTkLabel(self, text="Result will appear here", font=("Arial", 18), text_color="yellow")
         self.result_label.pack(pady=10)
+
+if __name__ == "__main__":
+    app = CalculatorApp()
+    app.mainloop()
