@@ -24,3 +24,17 @@ class CalculatorApp(ctk.CTk):
             "Addition": Addition(), "Subtraction": Subtraction(),
             "Multiplication": Multiplication(), "Division": Division()
         }
+        self.setup_ui()
+
+    def setup_ui(self):
+        ctk.CTkLabel(self, text="CALCULATOR 3000", font=("Arial", 24, "bold")).pack(pady=20)
+        self.num1_entry = ctk.CTkEntry(self, placeholder_text="Enter first number", width=250)
+        self.num1_entry.pack(pady=10)
+        self.operation_var = ctk.StringVar(value="Addition")
+        ctk.CTkOptionMenu(self, variable=self.operation_var, values=list(self.operations.keys()), width=250).pack(pady=10)
+        self.num2_entry = ctk.CTkEntry(self, placeholder_text="Enter second number", width=250)
+        self.num2_entry.pack(pady=10)
+        self.calc_btn = ctk.CTkButton(self, text="Calculate", font=("Arial", 16, "bold"))
+        self.calc_btn.pack(pady=20)
+        self.result_label = ctk.CTkLabel(self, text="Result will appear here", font=("Arial", 18), text_color="yellow")
+        self.result_label.pack(pady=10)
