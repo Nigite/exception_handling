@@ -51,6 +51,11 @@ class CalculatorApp(ctk.CTk):
             if result.is_integer(): result = int(result)
             self.result_label.configure(text=f"Result: {result}", text_color="#00FF00")
 
+            log_entry = f"{op_name}: {num1} and {num2} = {result}\n"
+            self.history_box.configure(state="normal")
+            self.history_box.insert("end", log_entry)
+            self.history_box.configure(state="disabled")
+
         except ValueError:
             self.result_label.configure(text="Error: Letters not allowed!", text_color="#FF4444")
         except ZeroDivisionError as e:
